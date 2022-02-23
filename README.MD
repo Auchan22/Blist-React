@@ -1,4 +1,4 @@
-# Blist APP
+# Blist App
 
 _En este repositorio vas a encontrar el codigo base de la app "Blist", desarrollada por mi hace mucho con Vanilla JS, pero ahora reversionada. Utilizando nuevas tecnologías, como lo es React._
 _Es un app que te permitira tener una lista de las compras, en tu propio bolsillo del pantalon, de manera digital y mas linda visualmente (creo yo que cuando hacemos la lista de las compras, no le ponemos mucho diseño 🙈)_
@@ -9,6 +9,7 @@ _Es un app que te permitira tener una lista de las compras, en tu propio bolsill
 - [React Router](https://reactrouter.com/) - Framework para facilitar el enrutado de la app
 - [Context](https://es.reactjs.org/docs/context.html) - Manejador del estado
 - [Chakra UI](https://chakra-ui.com/) - Librería para la creacion de componentes dinámicos
+- [Vite JS](https://vitejs.dev/) - Herramienta para la creación del template de la App
 
 ## Autores ✒️
 
