@@ -14,16 +14,24 @@ import CATEGORIES from "../assets/categoryAPI";
 import InputContext from "../Context/InputContext";
 
 const FormItem = () => {
-  const { name, handleInputChange, handleSubmit, handleClick, handleSelect } =
-    useContext(InputContext);
+  const {
+    name,
+    category,
+    description,
+    handleInputChange,
+    handleClick,
+    handleSelect,
+    handleDescription,
+  } = useContext(InputContext);
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={(e) => e.preventDefault()}>
         <FormControl>
           <FormLabel htmlFor="name">Nombre del Producto</FormLabel>
           <Input
             id="name"
+            placeholder="Ej: Coca Cola"
             type="text"
             value={name}
             onChange={handleInputChange}
@@ -34,6 +42,7 @@ const FormItem = () => {
           <FormLabel htmlFor="category">Categoría</FormLabel>
           <Select
             placeholder="Seleccione una categoría"
+            value={category}
             onChange={handleSelect}
           >
             {CATEGORIES.map((option) => (
@@ -51,7 +60,11 @@ const FormItem = () => {
         <br />
         <FormControl>
           <FormLabel htmlFor="category">Descripción</FormLabel>
-          <Textarea placeholder="Descripcion del producto" />
+          <Textarea
+            placeholder="Descripcion del producto"
+            value={description}
+            onChange={handleDescription}
+          />
         </FormControl>
 
         <ModalFooter>
