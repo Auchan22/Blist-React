@@ -11,7 +11,7 @@ const InputProvider = ({ children }) => {
   const [items, setItems] = useState(
     JSON.parse(localStorage.getItem("Products")) || []
   );
-  console.log(items);
+  // console.log(items);
 
   const [img, setIMG] = useState("");
 
@@ -21,6 +21,7 @@ const InputProvider = ({ children }) => {
 
   const [name, setName] = useState("");
   const [category, setCategory] = useState("");
+  const [description, setDescription] = useState("");
 
   const handleInputChange = (e) => {
     setName(e.target.value);
@@ -38,20 +39,30 @@ const InputProvider = ({ children }) => {
     // console.log(selectionImg);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleDescription = (e) => {
+    setDescription(e.target.value === "" ? "" : e.target.value);
   };
 
   const handleClick = () => {
-    if (name === "") {
-      // console.log("Hay un Error");
-      toast({
-        title: "El campo Name debe estar completo",
-        status: "error",
-        duration: 1000,
-        isClosable: true,
-        position: "top",
-      });
+    if (name === "" || category === "") {
+      if (name === "") {
+        toast({
+          title: "El item debe tener un nombre",
+          status: "error",
+          duration: 1000,
+          isClosable: true,
+          position: "top",
+        });
+      }
+      if (category === "") {
+        toast({
+          title: "Se debe elegir una categoría",
+          status: "error",
+          duration: 1000,
+          isClosable: true,
+          position: "top",
+        });
+      }
     } else {
       localStorage.setItem("Products", JSON.stringify(items));
       setItems(() => {
@@ -59,33 +70,37 @@ const InputProvider = ({ children }) => {
           ...items,
           {
             id: Date.now(),
+            categoria: category,
             nombre: name,
             imagen: img,
+            descripcion: description,
           },
         ];
       });
       setName("");
-      setTimeout(() => {
-        // console.log("Tu elemento se agrego correctamente");
+      setCategory("");
+      setDescription("");
+      // console.log("Tu elemento se agrego correctamente");
 
-        toast({
-          title: "Item Creado Correctamente.",
-          status: "success",
-          duration: 3000,
-          isClosable: true,
-          position: "top",
-        });
-      }, 1000);
+      toast({
+        title: "Item Creado Correctamente.",
+        status: "success",
+        duration: 3000,
+        isClosable: true,
+        position: "top",
+      });
     }
   };
 
   const data = {
     name,
-    handleInputChange,
-    handleSubmit,
+    category,
+    description,
     items,
+    handleInputChange,
     handleClick,
     handleSelect,
+    handleDescription,
   };
 
   return <InputContext.Provider value={data}>{children}</InputContext.Provider>;
