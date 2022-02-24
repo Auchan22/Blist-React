@@ -16,7 +16,7 @@ const ItemCard = ({ data }) => {
     <Box
       align="center"
       as={LinkR}
-      bg={useColorModeValue("gray.200", "white")}
+      bg={useColorModeValue("gray.300", "gray.400")}
       boxShadow={"lg"}
       color="black"
       h="80px"
@@ -27,7 +27,9 @@ const ItemCard = ({ data }) => {
       <Flex alignItems="center">
         <Box p="2">
           <Image
+            bgColor="gray.200"
             borderRadius="full"
+            boxShadow="2xl"
             boxSize="60px"
             h="60px"
             objectFit="cover"
