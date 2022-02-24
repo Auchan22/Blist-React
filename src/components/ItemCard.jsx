@@ -11,7 +11,7 @@ import { ChevronRightIcon } from "@chakra-ui/icons";
 import { Link as LinkR } from "react-router-dom";
 
 const ItemCard = ({ data }) => {
-  const { nombre, imagen } = data;
+  const { id, nombre, imagen } = data;
   return (
     <Box
       align="center"
@@ -21,7 +21,7 @@ const ItemCard = ({ data }) => {
       color="black"
       h="80px"
       rounded={"xl"}
-      to="/"
+      to={`/products/${id}`}
       w="90%"
     >
       <Flex alignItems="center">
