@@ -8,6 +8,7 @@ import EmptyCart from "./EmptyCart";
 
 const ItemList = () => {
   const { items } = useContext(InputContext);
+
   return (
     <Container
       as={Stack}
