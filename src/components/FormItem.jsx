@@ -10,13 +10,11 @@ import {
 } from "@chakra-ui/react";
 import { useContext } from "react";
 
-import ModalContext from "../Context/ModalContext";
+import CATEGORIES from "../assets/categoryAPI";
 import InputContext from "../Context/InputContext";
 
 const FormItem = () => {
-  const { onClose } = useContext(ModalContext);
-
-  const { name, handleInputChange, handleSubmit, handleClick } =
+  const { name, handleInputChange, handleSubmit, handleClick, handleSelect } =
     useContext(InputContext);
 
   return (
@@ -31,21 +29,25 @@ const FormItem = () => {
             onChange={handleInputChange}
           />
         </FormControl>
-        {/* {isError.isErrorName && (
-          <FormErrorMessage>El campo debe estar lleno</FormErrorMessage>
-        )} */}
         <br />
         <FormControl>
           <FormLabel htmlFor="category">Categoría</FormLabel>
-          <Select placeholder="Seleccione una categoría">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
+          <Select
+            placeholder="Seleccione una categoría"
+            onChange={handleSelect}
+          >
+            {CATEGORIES.map((option) => (
+              <option
+                key={option.id}
+                data-icon={option.img}
+                id={option.id}
+                value={option.catName}
+              >
+                {option.catName}
+              </option>
+            ))}
           </Select>
         </FormControl>
-        {/* {isError.isErrorCategory && (
-          <FormErrorMessage>Se debe elegir una categoría</FormErrorMessage>
-        )} */}
         <br />
         <FormControl>
           <FormLabel htmlFor="category">Descripción</FormLabel>
