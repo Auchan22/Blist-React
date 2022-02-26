@@ -8,16 +8,21 @@ export default InputContext;
 const InputProvider = ({ children }) => {
   const toast = useToast();
 
+  useEffect(() => {
+    localStorage.setItem("Products", JSON.stringify([]));
+  }, []);
+
   const [items, setItems] = useState(
     JSON.parse(localStorage.getItem("Products")) || []
   );
-  // console.log(items);
-
-  const [img, setIMG] = useState("");
+  console.log(JSON.parse(localStorage.getItem("Products")));
 
   useEffect(() => {
     localStorage.setItem("Products", JSON.stringify(items));
+    console.log(items);
   }, [items]);
+
+  const [img, setIMG] = useState("");
 
   const [name, setName] = useState("");
   const [category, setCategory] = useState("");
@@ -64,7 +69,6 @@ const InputProvider = ({ children }) => {
         });
       }
     } else {
-      localStorage.setItem("Products", JSON.stringify(items));
       setItems(() => {
         return [
           ...items,
@@ -92,6 +96,18 @@ const InputProvider = ({ children }) => {
     }
   };
 
+  const handleRemove = (id) => {
+    console.log(id);
+    // setItems((items) => items.filter((_item) => _item.id != id));
+    // localStorage.setItem("Products", JSON.stringify(items));
+    console.log(JSON.parse(localStorage.getItem("Products")));
+    console.log(items.filter((item) => item.id != id));
+    setItems(() => {
+      items.filter((item) => item.id != id);
+    });
+    console.log(items);
+  };
+
   const data = {
     name,
     category,
@@ -101,6 +117,7 @@ const InputProvider = ({ children }) => {
     handleClick,
     handleSelect,
     handleDescription,
+    handleRemove,
   };
 
   return <InputContext.Provider value={data}>{children}</InputContext.Provider>;
