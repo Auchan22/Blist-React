@@ -1,14 +1,15 @@
 import { Image, Heading, Flex, Text } from "@chakra-ui/react";
-import { useParams } from "react-router-dom";
-import { useContext, useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import { useContext, memo } from "react";
 
 import InputContext from "../Context/InputContext";
 
 const ProductDetail = () => {
   const { productId } = useParams();
+  let navigate = useNavigate();
   //   console.log(productId);
   const { items } = useContext(InputContext);
-  //   console.log(items);
+  console.log(items);
 
   const getProductById = (id) => {
     return items.find((_product) => id == _product.id);
@@ -30,7 +31,7 @@ const ProductDetail = () => {
         borderRadius={"full"}
         height={"100px"}
         m={{ base: "0 0 35px 0", md: "0 0 0 50px" }}
-        src={product.imagen}
+        src={product.imagen || "https://placeholder.com"}
         width={"100px"}
       />
       <Heading as={"h2"} fontSize={"32px"} mb={"16px"}>
@@ -43,4 +44,4 @@ const ProductDetail = () => {
   );
 };
 
-export default ProductDetail;
+export default memo(ProductDetail);
