@@ -1,13 +1,15 @@
 import { useState, useContext } from "react";
-import { Container, Stack } from "@chakra-ui/react";
+import { Container, Stack, Box } from "@chakra-ui/react";
 
 import InputContext from "../Context/InputContext";
 
 import ItemCard from "./ItemCard";
 import EmptyCart from "./EmptyCart";
+import CheckButton from "./CheckButton";
 
 const ItemList = () => {
   const { items } = useContext(InputContext);
+  console.log(items);
 
   return (
     <Container
@@ -25,7 +27,18 @@ const ItemList = () => {
         {items.length === 0 ? (
           <EmptyCart />
         ) : (
-          items.map((item) => <ItemCard key={item.id} data={item} />)
+          items.map((item) => (
+            <Stack
+              key={item.name}
+              alignItems="center"
+              direction="row"
+              minWidth="90vw"
+              padding="5px"
+            >
+              <ItemCard key={item.id} data={item} />{" "}
+              <CheckButton id={item.id} />
+            </Stack>
+          ))
         )}
       </Stack>
     </Container>
