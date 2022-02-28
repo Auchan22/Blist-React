@@ -16,13 +16,13 @@ const ItemCard = ({ data }) => {
     <Box
       align="center"
       as={LinkR}
-      bg={useColorModeValue("gray.300", "gray.400")}
+      bgColor={useColorModeValue("gray.300", "gray.400")}
       boxShadow={"lg"}
       color="black"
       h="80px"
+      minW="80%"
       rounded={"xl"}
       to={`/products/${id}`}
-      w="90%"
     >
       <Flex alignItems="center">
         <Box p="2">
