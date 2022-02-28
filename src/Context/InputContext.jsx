@@ -8,19 +8,17 @@ export default InputContext;
 const InputProvider = ({ children }) => {
   const toast = useToast();
 
-  useEffect(() => {
-    localStorage.setItem("Products", JSON.stringify([]));
-  }, []);
+  // useEffect(() => {
+  //   localStorage.setItem("Products", JSON.stringify([]));
+  // }, []);
 
-  const [items, setItems] = useState(
-    JSON.parse(localStorage.getItem("Products")) || []
-  );
+  const [items, setItems] = useState([]);
   console.log(JSON.parse(localStorage.getItem("Products")));
 
-  useEffect(() => {
-    localStorage.setItem("Products", JSON.stringify(items));
-    console.log(items);
-  }, [items]);
+  // useEffect(() => {
+  //   localStorage.setItem("Products", JSON.stringify(items));
+  //   console.log(items);
+  // }, [items]);
 
   const [img, setIMG] = useState("");
 
@@ -98,13 +96,13 @@ const InputProvider = ({ children }) => {
 
   const handleRemove = (id) => {
     console.log(id);
-    // setItems((items) => items.filter((_item) => _item.id != id));
-    // localStorage.setItem("Products", JSON.stringify(items));
-    console.log(JSON.parse(localStorage.getItem("Products")));
-    console.log(items.filter((item) => item.id != id));
+    let restantes = items.filter((item) => id != item.id);
+    console.log(restantes);
     setItems(() => {
-      items.filter((item) => item.id != id);
+      restantes;
     });
+    // console.log(items.filter((item) => item.id != id));
+
     console.log(items);
   };
 
