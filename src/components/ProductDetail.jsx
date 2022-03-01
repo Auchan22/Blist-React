@@ -9,14 +9,14 @@ const ProductDetail = () => {
   let navigate = useNavigate();
   //   console.log(productId);
   const { items } = useContext(InputContext);
-  console.log(items);
+  // console.log(items);
 
   const getProductById = (id) => {
     return items.find((_product) => id == _product.id);
   };
 
   let product = getProductById(productId);
-  console.log(product);
+  // console.log(product);
 
   return (
     <Flex
@@ -38,8 +38,12 @@ const ProductDetail = () => {
         {product.nombre}
       </Heading>
       {product.descripcion ? (
-        <Text fontSize="lg">{product.descripcion}</Text>
-      ) : null}
+        <Text fontSize="xl">{product.descripcion}</Text>
+      ) : (
+        <Text isTruncated color="gray.500" fontSize="lg">
+          No se agregó una descripción.
+        </Text>
+      )}
     </Flex>
   );
 };
