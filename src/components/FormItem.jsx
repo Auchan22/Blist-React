@@ -19,7 +19,7 @@ const FormItem = () => {
     category,
     description,
     handleInputChange,
-    handleClick,
+    AddItem,
     handleSelect,
     handleDescription,
   } = useContext(InputContext);
@@ -68,7 +68,7 @@ const FormItem = () => {
         </FormControl>
 
         <ModalFooter>
-          <Button colorScheme="blue" type="submit" onClick={handleClick}>
+          <Button colorScheme="blue" type="submit" onClick={AddItem}>
             Agregar
           </Button>
         </ModalFooter>
