@@ -8,17 +8,19 @@ export default InputContext;
 const InputProvider = ({ children }) => {
   const toast = useToast();
 
-  // useEffect(() => {
-  //   localStorage.setItem("Products", JSON.stringify([]));
-  // }, []);
+  useEffect(() => {
+    localStorage.setItem("Products", JSON.stringify([]));
+  }, []);
 
-  const [items, setItems] = useState([]);
-  console.log(JSON.parse(localStorage.getItem("Products")));
+  const [items, setItems] = useState(
+    JSON.parse(localStorage.getItem("Products")) || []
+  );
+  // console.log(JSON.parse(localStorage.getItem("Products")));
 
-  // useEffect(() => {
-  //   localStorage.setItem("Products", JSON.stringify(items));
-  //   console.log(items);
-  // }, [items]);
+  useEffect(() => {
+    localStorage.setItem("Products", JSON.stringify(items));
+    // console.log(items);
+  }, [items]);
 
   const [img, setIMG] = useState("");
 
@@ -46,7 +48,7 @@ const InputProvider = ({ children }) => {
     setDescription(e.target.value === "" ? "" : e.target.value);
   };
 
-  const handleClick = () => {
+  const AddItem = () => {
     if (name === "" || category === "") {
       if (name === "") {
         toast({
@@ -67,18 +69,15 @@ const InputProvider = ({ children }) => {
         });
       }
     } else {
-      setItems(() => {
-        return [
-          ...items,
-          {
-            id: Date.now(),
-            categoria: category,
-            nombre: name,
-            imagen: img,
-            descripcion: description,
-          },
-        ];
-      });
+      let item = {
+        id: Date.now(),
+        categoria: category,
+        nombre: name,
+        imagen: img,
+        descripcion: description,
+      };
+
+      setItems(() => [...items, item]);
       setName("");
       setCategory("");
       setDescription("");
@@ -94,16 +93,12 @@ const InputProvider = ({ children }) => {
     }
   };
 
-  const handleRemove = (id) => {
-    console.log(id);
-    let restantes = items.filter((item) => id != item.id);
-    console.log(restantes);
-    setItems(() => {
-      restantes;
-    });
+  const DeleteItem = (id) => {
+    let newItems = items.filter((item) => id != item.id);
+    setItems(() => newItems);
     // console.log(items.filter((item) => item.id != id));
 
-    console.log(items);
+    // console.log(items);
   };
 
   const data = {
@@ -112,10 +107,10 @@ const InputProvider = ({ children }) => {
     description,
     items,
     handleInputChange,
-    handleClick,
+    AddItem,
     handleSelect,
     handleDescription,
-    handleRemove,
+    DeleteItem,
   };
 
   return <InputContext.Provider value={data}>{children}</InputContext.Provider>;
