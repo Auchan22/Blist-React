@@ -1,4 +1,4 @@
-import React, { useContext, useCallback } from "react";
+import React, { useContext } from "react";
 import {
   Box,
   Button,
@@ -19,11 +19,7 @@ import InputContext from "../Context/InputContext";
 
 const CheckButton = ({ id }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const { handleRemove } = useContext(InputContext);
-
-  const remove = useCallback(() => {
-    handleRemove(id);
-  }, [id]);
+  const { DeleteItem } = useContext(InputContext);
 
   return (
     <>
@@ -53,7 +49,14 @@ const CheckButton = ({ id }) => {
             <Heading as={"h4"}>¿Ya compraste este producto?</Heading>
           </ModalBody>
           <ModalFooter>
-            <Button colorScheme="green" mr={3} onClick={remove}>
+            <Button
+              colorScheme="green"
+              mr={3}
+              onClick={() => {
+                DeleteItem(id);
+                onClose();
+              }}
+            >
               Si
             </Button>
             <Button colorScheme="red" onClick={onClose}>
