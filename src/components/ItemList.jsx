@@ -9,7 +9,7 @@ import CheckButton from "./CheckButton";
 
 const ItemList = () => {
   const { items } = useContext(InputContext);
-  console.log(items);
+  // console.log(items);
 
   return (
     <Container
