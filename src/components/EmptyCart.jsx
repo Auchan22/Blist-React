@@ -1,6 +1,6 @@
 import { Box, Image, Text, useColorModeValue } from "@chakra-ui/react";
 
-import BackImage from "../assets/undraw_empty_cart_co35.svg";
+import BackImage from "../assets/Svg/undraw_empty_cart_co35.svg";
 
 const EmptyCart = () => {
   return (
