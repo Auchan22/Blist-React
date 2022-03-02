@@ -30,6 +30,7 @@ const FormItem = () => {
         <FormControl>
           <FormLabel htmlFor="name">Nombre del Producto</FormLabel>
           <Input
+            autoComplete="off"
             id="name"
             placeholder="Ej: Coca Cola"
             type="text"
@@ -61,6 +62,7 @@ const FormItem = () => {
         <FormControl>
           <FormLabel htmlFor="category">Descripción</FormLabel>
           <Textarea
+            autoComplete="off"
             placeholder="Descripcion del producto"
             value={description}
             onChange={handleDescription}
