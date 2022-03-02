@@ -1,37 +1,37 @@
 const CATEGORIES = [
   {
     catName: "Carne",
-    img: "./Images/FoodSVG/burger.svg",
+    img: "../../Img/burger.svg",
     id: "1",
   },
   {
     catName: "Pollo",
-    img: "./Images/FoodSVG/chicken thigh.svg",
+    img: "../../Img/chicken thigh.svg",
     id: "2",
   },
   {
     catName: "Fruta",
-    img: "./Images/FoodSVG/grape.svg",
+    img: "../../Img/grape.svg",
     id: "3",
   },
   {
     catName: "Verdura",
-    img: "./Images/FoodSVG/carrot.svg",
+    img: "../../Img/carrot.svg",
     id: "4",
   },
   {
     catName: "Bebida",
-    img: "./Images/FoodSVG/cola.svg",
+    img: "../../Img/cola.svg",
     id: "5",
   },
   {
     catName: "Lacteos",
-    img: "./Images/FoodSVG/burger.svg",
+    img: "../../Img/burger.svg",
     id: "6",
   },
   {
     catName: "Postres",
-    img: "./Images/FoodSVG/ice cream.svg",
+    img: "../../Img/ice cream.svg",
     id: "7",
   },
 ];
