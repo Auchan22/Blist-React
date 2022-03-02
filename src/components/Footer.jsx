@@ -24,10 +24,18 @@ const Footer = () => {
         <SimpleGrid columns={{ base: 1, sm: 2, md: 4 }} spacing={2}>
           <Stack align={"flex-start"}>
             <Heading as="h2">Seguime en mis redes</Heading>
-            <Link href={"#"}>Twitter</Link>
-            <Link href={"#"}>Instagram</Link>
-            <Link href={"#"}>LinkedIn</Link>
-            <Link href={"#"}>Github</Link>
+            <Link href={"https://twitter.com/SurilaAgus"}>Twitter</Link>
+            <Link href={"https://www.instagram.com/agussurila/"}>
+              Instagram
+            </Link>
+            <Link
+              href={
+                "https://www.linkedin.com/in/agust%C3%ADn-surila-soto-80b29b1b5/"
+              }
+            >
+              LinkedIn
+            </Link>
+            <Link href={"https://github.com/Auchan22"}>Github</Link>
           </Stack>
         </SimpleGrid>
       </Container>
