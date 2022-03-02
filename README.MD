@@ -10,6 +10,7 @@ _Es un app que te permitira tener una lista de las compras, en tu propio bolsill
 - [Context](https://es.reactjs.org/docs/context.html) - Manejador del estado
 - [Chakra UI](https://chakra-ui.com/) - Librería para la creacion de componentes dinámicos
 - [Vite JS](https://vitejs.dev/) - Herramienta para la creación del template de la App
+- [Vercel](https://vercel.com/) - Plataforma para hostear el proyecto
 
 ## Autores ✒️
 
